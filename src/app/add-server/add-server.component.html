@@ -1,0 +1,29 @@
+<mat-card style="width: 60%;">
+    <mat-card-header>
+        <mat-card-title>
+            Nuevo servidor
+        </mat-card-title>
+    </mat-card-header>
+    <form [formGroup]="serverForm" (ngSubmit)="onSubmit()" class="form-flex">
+        <mat-form-field>
+            <mat-label>
+                Nombre
+            </mat-label>
+            <input matInput type="text" formControlName="name">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>
+                Direccion IP
+            </mat-label>
+            <input matInput type="text" formControlName="ip">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>
+                Puerto
+            </mat-label>
+            <input matInput type="number" formControlName="port">
+        </mat-form-field>
+        <button mat-flat-button color="primary" type="submit" [disabled]="!serverForm.valid"
+            style="align-self: flex-end;">Agregar</button>
+    </form>
+</mat-card>

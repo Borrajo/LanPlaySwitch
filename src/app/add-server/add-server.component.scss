@@ -1,0 +1,11 @@
+:host {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+}
+.form-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+}

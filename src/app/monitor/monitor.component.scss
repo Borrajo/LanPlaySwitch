@@ -1,0 +1,19 @@
+:host {
+    padding: 1rem;
+}
+pre {
+    background-color: black;
+    color: chartreuse;
+    font-size: 0.6rem;
+    padding-left: 1rem;
+    height: 60vh;
+    overflow-y: scroll;
+    word-break: break-all;
+}
+.buttons-log {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: stretch;
+}

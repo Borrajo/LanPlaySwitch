@@ -1,0 +1,24 @@
+<div cdkDropList class="container-list" (cdkDropListDropped)="drop($event)">
+    <div *ngFor="let server of servers" style="padding-top: 0.5rem;" cdkDrag>
+        <mat-card style="width: auto; padding: 0.25rem 1rem 0.25rem 1rem;">
+            <mat-card-content class="content">
+                <div>
+                    <app-flag-icon [country]="server.flag"></app-flag-icon>
+                    <span class="title-server"><strong>{{server.name}}</strong>  {{server.ip}}:{{server.port}}</span>
+                </div>
+                <div class="info-container">
+                    <mat-chip-list>
+                        <mat-chip color="warn" [selected]="isServerDown(server)">
+                            {{!server.state ?'Offline' : 'Online'}}
+                            {{server.state?.online}}</mat-chip>
+                    </mat-chip-list>
+                    <button mat-icon-button color="primary" aria-label="connect" (click)="connect(server)"
+                        [disabled]="isConnecting || isConnected || !server.state">
+                        <mat-icon>play_arrow</mat-icon>
+                    </button>
+                </div>
+            </mat-card-content>
+        </mat-card>
+        <div style="margin-top: 0.2rem;"></div>
+    </div>
+</div>

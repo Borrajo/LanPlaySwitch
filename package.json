@@ -1,0 +1,93 @@
+{
+  "name": "lan_play_ar",
+  "author": "Manuel Borrajo",
+  "description": "Lan Play Graphic Interface",
+  "version": "0.0.1",
+  "main": "main.js",
+  "scripts": {
+    "postinstall": "npx electron-builder install-app-deps",
+    "start": "ng serve",
+    "electron": "electron .",
+    "electron-build": "ng build --prod && electron .",
+    "pack": "build --dir",
+    "dist": "npm run build && build --publish onTagOrDraft",
+    "electron:windows": "ng build --prod && npx electron-builder build --windows",
+    "distWin32": "ng build --prod && npx electron-packager dist com.lanplayArg.app --platform=win32 --arch=x32",
+    "distWin64": "ng build --prod && npx electron-packager dist com.lanplayArg.app --platform=win32 --arch=x64",
+    "distLin": "ng build --prod && npx electron-builder --linux",
+    "distMac": "ng build --prod && npx electron-builder -o",
+    "distPi": "ng build --prod && npx electron-builder --linux --armv7l"
+  },
+  "build": {
+    "appId": "com.lanplayArg.app",
+    "asar": false,
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": [
+        "zip"
+      ],
+      "icon": "build/icon.ico"
+    }
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "~9.0.0",
+    "@angular/cdk": "^9.2.0",
+    "@angular/common": "~9.0.0",
+    "@angular/compiler": "~9.0.0",
+    "@angular/core": "~9.0.0",
+    "@angular/forms": "~9.0.0",
+    "@angular/material": "^9.2.0",
+    "@angular/platform-browser": "~9.0.0",
+    "@angular/platform-browser-dynamic": "~9.0.0",
+    "@angular/router": "~9.0.0",
+    "child_process": "^1.0.2",
+    "flag-icon-css": "^3.4.6",
+    "ngx-electron": "^2.2.0",
+    "rxjs": "~6.5.4",
+    "tslib": "^1.10.0",
+    "zone.js": "~0.10.2"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~0.900.1",
+    "@angular/cli": "~9.0.1",
+    "@angular/compiler-cli": "~9.0.0",
+    "@angular/language-service": "~9.0.0",
+    "@types/jasmine": "~3.5.0",
+    "@types/jasminewd2": "~2.0.3",
+    "@types/node": "^12.11.1",
+    "codelyzer": "^5.1.2",
+    "electron": "^8.2.0",
+    "electron-json-config": "^1.5.3",
+    "jasmine-core": "~3.5.0",
+    "jasmine-spec-reporter": "~4.2.1",
+    "karma": "~4.3.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage-istanbul-reporter": "~2.1.0",
+    "karma-jasmine": "~2.0.1",
+    "karma-jasmine-html-reporter": "^1.4.2",
+    "protractor": "~5.4.3",
+    "ts-node": "~8.3.0",
+    "tslint": "~5.18.0",
+    "typescript": "~3.7.5"
+  }
+}

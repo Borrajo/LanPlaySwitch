@@ -1,0 +1,22 @@
+<mat-toolbar class="app-toolbar mat-elevation-z4" color="primary">
+    <mat-toolbar-row style="justify-content: space-between;">
+        <span style="font-size: 1.2rem;">{{state}}</span>
+        <div>
+            <button mat-icon-button (click)="refresh()">
+                <mat-icon>loop</mat-icon>
+            </button>
+            <button mat-icon-button (click)="disconnect()" [disabled]="!isConnected">
+                <mat-icon>link_off</mat-icon>
+            </button>
+        </div>
+    </mat-toolbar-row>
+    <mat-toolbar-row>
+        <nav mat-tab-nav-bar>
+            <a mat-tab-link *ngFor="let link of sections" [routerLink]="link.path" routerLinkActive
+                #rla="routerLinkActive" [active]="rla.isActive">
+                {{link.label}}
+            </a>
+        </nav>
+    </mat-toolbar-row>
+</mat-toolbar>
+<router-outlet style="margin-top: 7rem"></router-outlet>
