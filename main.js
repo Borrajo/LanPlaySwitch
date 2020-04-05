@@ -32,6 +32,7 @@ const file = {
         x64: ''
     },
     win32: {
+        ia32: 'lan-play-win32.exe',
         x32: 'lan-play-win32.exe',
         x64: 'lan-play-win64.exe'
     }
@@ -40,7 +41,7 @@ function createWindow() {
     // console.log(require.resolve('electron'));
     // Create the browser window.
     win = new BrowserWindow({
-        width: 400,
+        width: 1400,
         height: 600,
         darkTheme: false,
         fullscreenable: false,
@@ -57,7 +58,7 @@ function createWindow() {
     win.loadFile(path.join(__dirname, `/public/index.html`))
 
     // Abre las herramientas de desarrollo (DevTools).
-    // win.webContents.openDevTools();
+    win.webContents.openDevTools();
     // Event when the window is closed.
     win.on('closed', function () {
         win = null

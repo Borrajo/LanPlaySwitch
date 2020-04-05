@@ -2,7 +2,7 @@
   "name": "lan_play_ar",
   "author": "Manuel Borrajo",
   "description": "Lan Play Graphic Interface",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "main": "main.js",
   "scripts": {
     "postinstall": "npx electron-builder install-app-deps",
@@ -11,7 +11,8 @@
     "electron-build": "ng build --prod && electron .",
     "pack": "build --dir",
     "dist": "npm run build && build --publish onTagOrDraft",
-    "electron:windows": "ng build --prod && npx electron-builder build --windows",
+    "electron:windows32": "ng build --prod && npx electron-builder build --windows --ia32",
+    "electron:windows64": "ng build --prod && npx electron-builder build --windows --x64",
     "distWin32": "ng build --prod && npx electron-packager dist com.lanplayArg.app --platform=win32 --arch=x32",
     "distWin64": "ng build --prod && npx electron-packager dist com.lanplayArg.app --platform=win32 --arch=x64",
     "distLin": "ng build --prod && npx electron-builder --linux",
@@ -43,7 +44,7 @@
     },
     "win": {
       "target": [
-        "zip"
+        "NSIS"
       ],
       "icon": "build/icon.ico"
     }

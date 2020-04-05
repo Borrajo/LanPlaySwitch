@@ -1,9 +1,10 @@
-import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { CdkDragDrop, moveItemInArray, CdkDragExit, CdkDragRelease } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ExecuteService } from '../services/connection.service';
 import { Server } from '../services/server.interface';
 import { ServersService } from '../services/servers.service';
+import { CommonService } from '../services/common.service';
 
 @Component({
   selector: 'app-list',
@@ -18,7 +19,10 @@ export class ListComponent implements OnInit {
   public isConnecting: boolean = false;
 
   constructor(private serverService: ServersService,
-    private conectService: ExecuteService, private route: Router) { }
+    private conectService: ExecuteService,
+    private route: Router,
+    private common: CommonService
+  ) { }
 
   ngOnInit(): void {
     this.serverService.servers.subscribe({
@@ -48,6 +52,17 @@ export class ListComponent implements OnInit {
   }
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.servers, event.previousIndex, event.currentIndex);
+    this.common.isDragged = false;
     this.serverService.saveListServers(this.servers);
+  }
+  dropOut(event: CdkDragDrop<string[]>) {
+    if (event.container.id === 'deleteZone') {
+      event.previousContainer.data.splice(event.previousIndex, 1);
+      this.serverService.saveListServers(this.servers);
+    }
+    this.common.isDragged = false;
+  }
+  dragInit(event: CdkDragDrop<string[]>) {
+    this.common.isDragged = true;
   }
 }

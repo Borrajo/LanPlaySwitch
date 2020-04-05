@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ServersService } from '../services/servers.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-server',
@@ -14,7 +15,11 @@ export class AddServerComponent implements OnInit {
     port: ['', Validators.required],
   });
 
-  constructor(private form: FormBuilder, private serverService: ServersService) { }
+  constructor(
+    private form: FormBuilder,
+    private serverService: ServersService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
@@ -22,7 +27,8 @@ export class AddServerComponent implements OnInit {
   onSubmit() {
     // TODO: Use EventEmitter with form value
     this.serverService.addServer(this.serverForm.value);
-    this.serverForm.reset();
+    this.serverForm.updateValueAndValidity();
+    this.router.navigateByUrl('servers');
   }
 
 }

@@ -1,0 +1,6 @@
+<div cdkDrop cdkDropList [id]="'deleteZone'" (cdkDropListDropped)="drop($event)" (cdkDropListEntered)="entered($event)" [cdkDropListAutoScrollDisabled]="true"
+    style="height: 100%;">
+        <div class="zone" *ngIf="isEnterItem">
+            <mat-icon class="icon">delete</mat-icon>
+        </div>
+</div>

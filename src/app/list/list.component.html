@@ -1,10 +1,12 @@
-<div cdkDropList class="container-list" (cdkDropListDropped)="drop($event)">
-    <div *ngFor="let server of servers" style="padding-top: 0.5rem;" cdkDrag>
+<div cdkDropList class="container-list" [cdkDropListData]="servers" [cdkDropListConnectedTo]="['deleteZone']"
+    (cdkDropListDropped)="drop($event)">
+    <div *ngFor="let server of servers" style="padding-top: 0.5rem;" cdkDrag (cdkDragDropped)="dropOut($event)"
+        (cdkDragStarted)="dragInit($event)">
         <mat-card style="width: auto; padding: 0.25rem 1rem 0.25rem 1rem;">
             <mat-card-content class="content">
                 <div>
                     <app-flag-icon [country]="server.flag"></app-flag-icon>
-                    <span class="title-server"><strong>{{server.name}}</strong>  {{server.ip}}:{{server.port}}</span>
+                    <span class="title-server"><strong>{{server.name}}</strong> {{server.ip}}:{{server.port}}</span>
                 </div>
                 <div class="info-container">
                     <mat-chip-list>

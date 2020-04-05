@@ -13,6 +13,7 @@ import { NgxElectronModule } from 'ngx-electron';
 import { MonitorComponent } from './monitor/monitor.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { OptionsComponent } from './options/options.component';
+import { DeleteZoneComponent } from './delete-zone/delete-zone.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { OptionsComponent } from './options/options.component';
     FlagIconComponent,
     AddServerComponent,
     MonitorComponent,
-    OptionsComponent
+    OptionsComponent,
+    DeleteZoneComponent
   ],
   imports: [
     BrowserModule,
