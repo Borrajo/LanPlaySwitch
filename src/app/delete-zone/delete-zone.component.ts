@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import { Server } from '../services/server.interface';
-import { ServersService } from 'dist/win-ia32-unpacked/resources/app/src/app/services/servers.service';
 import { CommonService } from '../services/common.service';
 
 @Component({
