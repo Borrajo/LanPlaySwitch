@@ -5,6 +5,8 @@
 /public
 /tmp
 /out-tsc
+/salida
+servers.json
 # Only exists if Bazel was run
 /bazel-out
 

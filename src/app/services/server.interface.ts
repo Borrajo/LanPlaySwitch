@@ -6,7 +6,7 @@ export interface Server {
     platform: string;
     type: string;
     state?: ServerState
-    mtu?: number;
+    options?: ServerOptions;
 }
 
 export interface ServerState {
@@ -20,4 +20,13 @@ export interface PromiseError {
     syscall: string;
     path: string;
     spawnargs: string[];
+}
+
+export interface ServerOptions {
+    mtu: number;
+    autentication?: {
+        user: string;
+        pass: string;
+    },
+    fakeInternet?: boolean;
 }

@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ExecuteService } from './services/connection.service';
 import { ServersService } from './services/servers.service';
 
@@ -7,7 +7,7 @@ import { ServersService } from './services/servers.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnDestroy {
+export class AppComponent implements OnDestroy, OnInit {
   public get state(): string {
     if (this.connection.serverConnected !== null) {
       return `Conectado a ${this.connection.serverConnected.ip}`;
@@ -31,6 +31,10 @@ export class AppComponent implements OnDestroy {
   }
 
   constructor(private connection: ExecuteService, private serverService: ServersService) { }
+  ngOnInit(): void {
+    this.connection.programExists()
+      .catch((message) => alert(message));
+  }
 
 
   public sections = [
@@ -39,12 +43,12 @@ export class AppComponent implements OnDestroy {
       path: 'servers'
     },
     {
-      label: 'Opciones',
-      path: 'options'
-    },
-    {
       label: 'Agregar Server',
       path: 'add-server'
+    },
+    {
+      label: 'Monitor',
+      path: 'monitor'
     },
   ]
 }

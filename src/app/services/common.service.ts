@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CommonService {
-  private _isdragged: boolean = true;
+  private _isdragged: boolean = false;
 
   public get isDragged(): boolean {
     return this._isdragged;

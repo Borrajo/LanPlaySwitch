@@ -38,6 +38,7 @@ export class ListComponent implements OnInit {
 
   public connect(server: Server) {
     this.isConnecting = true;
+    this.route.navigateByUrl('monitor');
     this.conectService.connectToServer(server)
       .then((data) => {
         this.isConnecting = false;

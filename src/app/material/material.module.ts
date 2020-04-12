@@ -11,6 +11,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatChipsModule } from '@angular/material/chips';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   exports: [
@@ -32,7 +33,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     // MatDatepickerModule,
     // MatDialogModule,
     MatDividerModule,
-    // MatExpansionModule,
+    MatExpansionModule,
     // MatGridListModule,
     MatIconModule,
     MatInputModule,

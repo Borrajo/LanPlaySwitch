@@ -1,6 +1,4 @@
-<mat-card>
-    <mat-form-field>
-        <mat-label>MTU</mat-label>
-        <input matInput [(ngModel)]="mtu" type="number" min="200" max="1600">
-    </mat-form-field>
-</mat-card>
+<mat-form-field>
+    <mat-label>MTU</mat-label>
+    <input matInput [(ngModel)]="mtu" type="number" min="200" max="1600" [disabled]="disabled">
+</mat-form-field>

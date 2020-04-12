@@ -26,6 +26,9 @@ export class ServersService {
   }
 
   public addServer(newServer: Server) {
+    if (!newServer.options) {
+      newServer.options = { mtu: 1000 }
+    }
     this._servers$.value.push(newServer);
     this.updateStateOfServers();
     this.saveListServers();

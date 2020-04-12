@@ -12,12 +12,12 @@ const routes: Routes = [
     component: ListComponent
   },
   {
-    path: 'options',
-    component: OptionsComponent
-  },
-  {
     path: 'add-server',
     component: AddServerComponent
+  },
+  {
+    path: 'monitor',
+    component: MonitorComponent
   },
   {
     path: '**',

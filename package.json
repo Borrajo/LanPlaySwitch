@@ -1,12 +1,13 @@
 {
-  "name": "lan_play_ar",
+  "name": "cable_link_play",
   "author": "Manuel Borrajo",
   "description": "Lan Play Graphic Interface",
-  "version": "0.0.3",
-  "main": "main.js",
+  "version": "0.0.5",
+  "main": "public/main.js",
   "scripts": {
     "postinstall": "npx electron-builder install-app-deps",
     "start": "ng serve",
+    "electron-tsc": "npx tsc main.ts --outDir public",
     "electron": "electron .",
     "electron-build": "ng build --prod && electron .",
     "pack": "build --dir",
@@ -20,8 +21,11 @@
     "distPi": "ng build --prod && npx electron-builder --linux --armv7l"
   },
   "build": {
-    "appId": "com.lanplayArg.app",
+    "appId": "com.cableLinkPlay.app",
     "asar": false,
+    "directories": {
+      "output": "./salida"
+    },
     "dmg": {
       "contents": [
         {
@@ -46,7 +50,7 @@
       "target": [
         "NSIS"
       ],
-      "icon": "build/icon.ico"
+      "icon": "icon.png"
     }
   },
   "private": true,
@@ -61,10 +65,9 @@
     "@angular/platform-browser": "~9.0.0",
     "@angular/platform-browser-dynamic": "~9.0.0",
     "@angular/router": "~9.0.0",
-    "child_process": "^1.0.2",
     "flag-icon-css": "^3.4.6",
     "ngx-electron": "^2.2.0",
-    "rxjs": "~6.5.4",
+    "rxjs": "^6.5.5",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
   },
@@ -75,9 +78,9 @@
     "@angular/language-service": "~9.0.0",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
-    "@types/node": "^12.11.1",
+    "@types/node": "^12.12.35",
     "codelyzer": "^5.1.2",
-    "electron": "^8.2.0",
+    "electron": "^8.2.1",
     "electron-json-config": "^1.5.3",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
